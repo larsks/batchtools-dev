@@ -8,7 +8,11 @@ COPY --from=gcr.io/google_containers/pause:latest /pause /bin/
 # Install uv
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-RUN apt -y update && apt -y install rsync && apt clean
+RUN apt -y update && \
+  apt -y install \
+    git \
+    rsync && \
+  apt clean
 
 # Set working directory to a path that will stable
 # writable by default on OpenShift
