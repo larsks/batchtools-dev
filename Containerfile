@@ -11,7 +11,8 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 RUN apt -y update && \
   apt -y install \
     git \
-    rsync && \
+    rsync \
+    vim && \
   apt clean
 
 # Set working directory to a path that will stable
